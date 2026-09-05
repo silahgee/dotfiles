@@ -1,0 +1,11 @@
+# Shell configurations
+"bash/bashrc" = ".bashrc"
+"bash/bash_profile" = ".bash_profile"
+"tmux/tmux.conf" = ".tmux.conf"
+
+# Terminal emulator
+"alacritty/alacritty.toml" = ".config/alacritty/alacritty.toml"
+"alacritty/themes" = ".config/alacritty/themes"
+
+# Git global config
+"git/gitconfig" = ".gitconfig"
