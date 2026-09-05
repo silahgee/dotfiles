@@ -1,0 +1,42 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+
+# Automatically start or attach to tmux in interactive shells
+if command -v tmux &> /dev/null && [ -z "$TMUX" ] && [ "$BACKGROUND" != "true" ]; then
+    # Check if the 'default' session already exists
+    if tmux has-session -t default 2>/dev/null; then
+        # Create a new window in the current directory and attach
+        tmux new-window -t default -c "$PWD"
+        tmux attach-session -t default
+    else
+        # Create the session if it doesn't exist
+        tmux new-session -s default -c "$PWD"
+    fi
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
