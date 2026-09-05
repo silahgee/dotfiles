@@ -1,3 +1,7 @@
+[general]
+# https://terminalcolors.com/alacritty/
+import = ["~/.config/alacritty/themes/ayu-dark.toml"]
+
 [window]
 startup_mode = "Maximized"
 
@@ -11,4 +15,3 @@ action = "ToggleFullscreen"
 key = "M"
 mods = "Control|Shift"
 action = "ToggleMaximized"
-
