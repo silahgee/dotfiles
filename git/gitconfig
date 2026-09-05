@@ -1,0 +1,14 @@
+[user]
+	email = 
+	name = 
+
+[init]
+	defaultBranch = main
+
+[alias]
+	ls = log --oneline
+	tree = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+	tree-all = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	history = "!f() { git log --all --author=\"$1\"; }; f"
+	ca-history = "!f() { git log --all --grep=\"Co-authored-by: $1\"; }; f"
+	bcommit = "!f() { branch=$(git branch --show-current); title=\"$branch $1\"; shift; commit_message=(); for desc in \"$@\"; do commit_message+=(-m \"$desc\"); done; git commit -m \"$title\" \"${commit_message[@]}\"; }; f"
