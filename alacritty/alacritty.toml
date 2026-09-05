@@ -1,0 +1,14 @@
+[window]
+startup_mode = "Maximized"
+
+decorations = "Full"
+
+[[keyboard.bindings]]
+key = "F11"
+action = "ToggleFullscreen"
+
+[[keyboard.bindings]]
+key = "M"
+mods = "Control|Shift"
+action = "ToggleMaximized"
+
