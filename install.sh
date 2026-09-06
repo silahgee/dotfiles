@@ -57,8 +57,10 @@ for src in "${!LINKS[@]}"; do
 		echo "Created directory: $target_dir"
 	fi
 
-	# safely remove existing file, folder, or broken symlink
+	# safely backup existing file or folder and remove link
 	if [ -e "$target" ] || [ -L "$target" ]; then
+		TIMESTAMP=$(date +%Y%m%d%H%M%S)
+		cp -rLf "$target" "$target.$TIMESTAMP.bak"
 		rm -rf "$target"
 	fi
 
