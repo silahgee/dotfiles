@@ -65,6 +65,23 @@ for src in "${!LINKS[@]}"; do
 	# create the new symlink
 	ln -s "$source" "$target"
 	echo "Linked $source -> $target"
+
+	# check if the target is .bashrc and source it
+	if [[ "$target" == *".bashrc" ]]; then
+		echo -e "\tSourcing $target..."
+		source "$target"
+	fi
+
+	# Check if the target is .tmux.conf and reload it
+	if [[ "$target" == *".tmux.conf" ]]; then
+		if [ -n "$TMUX" ]; then
+			echo -e "\tReloading tmux configuration..."
+			tmux source-file "$target"
+		else
+			echo -e "\tSkipped tmux reload (not inside a tmux session)"
+		fi
+	fi
 done
 
 echo "Done"
+
