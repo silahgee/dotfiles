@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# =================
+# ================================================================
 # git-filters.sh
-# =================
+# Script to configure git filters to strip personal metadata
+# ================================================================
 
 # cleans and strips personal user metadata
 # 	- name

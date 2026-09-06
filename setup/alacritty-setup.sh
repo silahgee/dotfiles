@@ -7,17 +7,25 @@
 # https://alacritty.org | https://github.com/alacritty/alacritty
 # =================================================================
 
-if ! rpm -q alacritty &> /dev/null; then
+# exit immediately if dnf is not installed
+if ! command -v dnf &> /dev/null; then
+	echo "Error: dnf is required but not installed"
+	exit 1
+fi
+
+# check alacritty is installed
+if ! command -v alacritty &> /dev/null; then
 	sudo dnf install alacritty -y
 else
-	echo "Alacritty is already installed. Skipping."
+	echo -n "$(alacritty --version) - "
+	echo "Alacritty is already installed"
 fi
 
 # enable COPR repository containing the plugin allowing you to open custom terminals from the Nautilus file manager
 if [ ! -f /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:monkeygold:nautilus-open-any-terminal.repo ]; then
 	sudo dnf copr enable monkeygold/nautilus-open-any-terminal
 else
-    echo "COPR repository is already enabled. Skipping."
+	echo "COPR repository is already enabled"
 fi
 
 if ! rpm -q nautilus-open-any-terminal &> /dev/null; then
@@ -30,8 +38,8 @@ if ! rpm -q nautilus-open-any-terminal &> /dev/null; then
 	echo "Restarting Nautilus file manager..."
 	nautilus -q
 	nohup nautilus &> /dev/null &
-else 
-	echo "Nautilus extension is already installed. Skipping."
+else
+	echo "Nautilus extension is already installed"
 fi
 
 echo "Done"

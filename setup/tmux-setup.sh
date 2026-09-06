@@ -7,8 +7,19 @@
 # https://tmux.us | https://github.com/tmux/tmux
 # =================================================================
 
-sudo dnf install tmux -y
-tmux -v
+# exit immediately if dnf is not installed
+if ! command -v dnf &> /dev/null; then
+	echo "Error: dnf is required but not installed"
+	exit 1
+fi
+
+# check tmux is installed
+if ! command -v tmux &> /dev/null; then
+	sudo dnf install tmux -y
+else
+	echo -n "$(tmux -V) - "
+	echo "Tmux is already installed"
+fi
 
 TMUX_CONF="$HOME/.tmux.conf"
 
