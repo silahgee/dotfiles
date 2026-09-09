@@ -7,5 +7,8 @@
 "alacritty/alacritty.toml" = ".config/alacritty/alacritty.toml"
 "alacritty/themes" = ".config/alacritty/themes"
 
-# Git global config
+# Git global configuration
 "git/gitconfig" = ".gitconfig"
+
+# GNU nano text editor configuration
+"nano/nanorc" = ".nanorc"
