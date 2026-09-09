@@ -43,9 +43,9 @@ Open `symlinks.toml` and append a new key-value pair mapping rule.
 
 ### 3. Deploy the changes
 
-Run the installation script again. The script will automatically verify the source, build any missing parent directories (like `.config/neofetch`), remove old files, and apply the new semlink.
+Run the installation script again. The script will automatically verify the source, build any missing parent directories (like `.config/neofetch`), remove old files, and apply the new symlink.
 
 ```bash
 cd ~/dotfiles
-./install.sh
+./bootstrap.sh
 ```
