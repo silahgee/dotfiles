@@ -30,9 +30,9 @@ mkdir -p ~/dotfiles/neofetch
 mv ~/.config/neofetch/config.conf ~/dotfiles/neofetch/config.conf
 ```
 
-### 2. Update `links.toml`
+### 2. Update `symlinks.toml`
 
-Open `links.toml` and append a new key-value pair mapping rule.
+Open `symlinks.toml` and append a new key-value pair mapping rule.
 
 - **Key:** The relative path inside your `~/dotfiles` directory
 - **Value:** The relative path from your `$HOME` directory where the application expects it to be

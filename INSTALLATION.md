@@ -6,21 +6,21 @@ Make sure to clone the repository directly into your user's `home` directory.
 cd ~
 
 # using HTTPS
-git clone https://github.com/silahgee/dotfiles.git
+git clone https://github.com/silahgee/dotfiles.git ~/dotfiles
 
 # using SSH
-git clone git@github.com:silahgee/dotfiles.git
+git clone git@github.com:silahgee/dotfiles.git ~/dotfiles
 
-cd dotfiles
+cd ~/dotfiles
 ```
 
 ## Configuration Setup
 
-Run the installation script to map and apply your configurations.
+Run the bootstrap installation script to map and apply your configurations.
 
 ```bash
-chmod +x install.sh # make the file executable
-./install.sh
+chmod +x bootstrap.sh # make the file executable
+./bootstrap.sh
 ```
 
 ### How It Works
