@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # exit immediately if dnf is not installed
 if ! command -v dnf &> /dev/null; then
@@ -7,7 +7,9 @@ if ! command -v dnf &> /dev/null; then
 fi
 
 DOTFILES="$HOME/dotfiles"
-CONFIG_FILE="$DOTFILES/links.toml"
+CONFIG_FILE="$DOTFILES/symlinks.toml"
+
+set -e
 
 # check if yq is installed
 if ! command -v yq &> /dev/null; then

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ================================================================
 # Fedora GNOME Alacritty installation and Nautilus integration
